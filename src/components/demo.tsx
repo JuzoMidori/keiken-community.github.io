@@ -43,9 +43,10 @@ const DISCORD_LINK = 'https://discord.gg/CHadqf8PZJ';
 const INSTAGRAM_LINK = 'https://www.instagram.com/keikenstudyabroad/';
 
 // Videos for each country
-const JAPAN_VIDEO = 'https://www.youtube.com/watch?v=ufskJSgaLfI';
-const KOREA_VIDEO = 'https://www.youtube.com/watch?v=BdPyMc257bw';
-const CHINA_VIDEO = 'https://www.youtube.com/watch?v=EcayPS05Yh4';
+// Direct MP4 videos — no YouTube branding, autoplay cleanly
+const JAPAN_VIDEO = 'https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4';
+const KOREA_VIDEO = 'https://videos.pexels.com/video-files/5474822/5474822-uhd_2560_1440_30fps.mp4';
+const CHINA_VIDEO = 'https://videos.pexels.com/video-files/3843435/3843435-uhd_2560_1440_25fps.mp4';
 
 // Background images
 const JAPAN_BG = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1920&q=80';
@@ -349,7 +350,7 @@ const SCHOLARSHIP_DATA = {
 // Main Demo Component
 const Demo = () => {
   const [activeCountry, setActiveCountry] = useState<'japan' | 'korea' | 'china'>('japan');
-  const [expandedScholarship, setExpandedScholarship] = useState<{country: string, index: number} | null>(null);
+  const [expandedScholarship, setExpandedScholarship] = useState<string | null>(null);
   const [showTimeline, setShowTimeline] = useState(false);
   const [activeView, setActiveView] = useState<'hero' | 'scholarships' | 'resources'>('hero');
 
@@ -564,20 +565,18 @@ const Demo = () => {
 
                   <button
                     onClick={() => setExpandedScholarship(
-                      expandedScholarship?.country === activeCountry && expandedScholarship?.index === index
-                        ? null
-                        : { country: activeCountry, index }
+                      expandedScholarship === `${activeCountry}-${index}` ? null : `${activeCountry}-${index}`
                     )}
                     className='w-full text-white/60 hover:text-white text-sm flex items-center justify-center gap-1 py-2 border-t border-white/5'
                   >
-                    {expandedScholarship?.country === activeCountry && expandedScholarship?.index === index ? 'Show Less' : 'Learn More'}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${expandedScholarship?.country === activeCountry && expandedScholarship?.index === index ? 'rotate-180' : ''}`} />
+                    {expandedScholarship === `${activeCountry}-${index}` ? 'Show Less' : 'Learn More'}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${expandedScholarship === `${activeCountry}-${index}` ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {/* Expanded Content */}
                 <AnimatePresence>
-                  {expandedScholarship?.country === activeCountry && expandedScholarship?.index === index && (
+                  {expandedScholarship === `${activeCountry}-${index}` && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
