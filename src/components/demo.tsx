@@ -39,14 +39,13 @@ import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { TextRotate } from '@/components/ui/text-rotate';
 import IntroAnimation from '@/components/ui/scroll-morph-hero';
 
-const DISCORD_LINK = 'https://discord.gg/keiken'; // TODO: replace with real invite
+const DISCORD_LINK = 'https://discord.gg/CHadqf8PZJ';
 const INSTAGRAM_LINK = 'https://www.instagram.com/keikenstudyabroad/';
 
 // Videos for each country
-const JAPAN_VIDEO = 'https://www.youtube.com/watch?v=xVVVQjaD-pg';
-const KOREA_VIDEO = 'https://www.youtube.com/watch?v=lhQ8efwbiA4';
-const CHINA_VIDEO_HONGKONG = 'https://www.youtube.com/watch?v=_tvKLm2YCEU';
-const CHINA_VIDEO_SHANGHAI = 'https://www.youtube.com/watch?v=XfOEPajh0do';
+const JAPAN_VIDEO = 'https://www.youtube.com/watch?v=ufskJSgaLfI';
+const KOREA_VIDEO = 'https://www.youtube.com/watch?v=BdPyMc257bw';
+const CHINA_VIDEO = 'https://www.youtube.com/watch?v=EcayPS05Yh4';
 
 // Background images
 const JAPAN_BG = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1920&q=80';
@@ -261,7 +260,7 @@ const SCHOLARSHIP_DATA = {
   china: {
     name: 'China',
     flag: '🇨🇳',
-    video: CHINA_VIDEO_SHANGHAI,
+    video: CHINA_VIDEO,
     bg: CHINA_BG,
     title: 'Study in China',
     subtitle: '5,000 years of history meets modern innovation',
@@ -350,11 +349,16 @@ const SCHOLARSHIP_DATA = {
 // Main Demo Component
 const Demo = () => {
   const [activeCountry, setActiveCountry] = useState<'japan' | 'korea' | 'china'>('japan');
-  const [expandedScholarship, setExpandedScholarship] = useState<number | null>(null);
+  const [expandedScholarship, setExpandedScholarship] = useState<{country: string, index: number} | null>(null);
   const [showTimeline, setShowTimeline] = useState(false);
   const [activeView, setActiveView] = useState<'hero' | 'scholarships' | 'resources'>('hero');
 
   const currentData = SCHOLARSHIP_DATA[activeCountry];
+
+  // Reset expanded card when switching countries
+  useEffect(() => {
+    setExpandedScholarship(null);
+  }, [activeCountry]);
 
   // Scroll to section helper
   const scrollToSection = (sectionId: string) => {
@@ -436,15 +440,15 @@ const Demo = () => {
             {/* Quick Stats */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-8'>
               <div className='p-4 bg-white/5 rounded-xl border border-white/10'>
-                <div className='text-2xl font-bold text-white'>{currentData.scholarships.length}</div>
+                <div className='text-2xl font-bold text-white'>18</div>
                 <div className='text-xs text-white/50'>Scholarships</div>
               </div>
               <div className='p-4 bg-white/5 rounded-xl border border-white/10'>
-                <div className='text-2xl font-bold text-white'>{currentData.exams.length}</div>
+                <div className='text-2xl font-bold text-white'>6</div>
                 <div className='text-xs text-white/50'>Language Tests</div>
               </div>
               <div className='p-4 bg-white/5 rounded-xl border border-white/10'>
-                <div className='text-2xl font-bold text-white'>{currentData.universities.length}+</div>
+                <div className='text-2xl font-bold text-white'>24+</div>
                 <div className='text-xs text-white/50'>Universities</div>
               </div>
               <div className='p-4 bg-white/5 rounded-xl border border-white/10'>
@@ -559,17 +563,21 @@ const Demo = () => {
                   </div>
 
                   <button
-                    onClick={() => setExpandedScholarship(expandedScholarship === index ? null : index)}
+                    onClick={() => setExpandedScholarship(
+                      expandedScholarship?.country === activeCountry && expandedScholarship?.index === index
+                        ? null
+                        : { country: activeCountry, index }
+                    )}
                     className='w-full text-white/60 hover:text-white text-sm flex items-center justify-center gap-1 py-2 border-t border-white/5'
                   >
-                    {expandedScholarship === index ? 'Show Less' : 'Learn More'}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${expandedScholarship === index ? 'rotate-180' : ''}`} />
+                    {expandedScholarship?.country === activeCountry && expandedScholarship?.index === index ? 'Show Less' : 'Learn More'}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${expandedScholarship?.country === activeCountry && expandedScholarship?.index === index ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {/* Expanded Content */}
                 <AnimatePresence>
-                  {expandedScholarship === index && (
+                  {expandedScholarship?.country === activeCountry && expandedScholarship?.index === index && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
@@ -676,7 +684,7 @@ const Demo = () => {
           >
             <span className='text-xs tracking-[0.3em] text-white/40 uppercase'>Community</span>
             <h2 className='font-serif text-4xl md:text-6xl text-white mt-4 mb-6'>
-              Join 12,000+ Students
+              Join Our Community
             </h2>
             <p className='text-white/60 text-lg mb-8 max-w-xl mx-auto'>
               Free resources, real advice, and a community that actually understands what you're going through.
@@ -727,7 +735,7 @@ const Demo = () => {
                 Discord
               </a>
               <a href={INSTAGRAM_LINK} target='_blank' rel='noopener noreferrer' className='text-white/40 hover:text-white/70 text-sm transition-colors'>
-                InstagramIcon
+                Instagram
               </a>
               <a href='#' className='text-white/40 hover:text-white/70 text-sm transition-colors'>
                 Resources
