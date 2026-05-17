@@ -43,41 +43,44 @@ const DISCORD_LINK = 'https://discord.gg/CHadqf8PZJ';
 const INSTAGRAM_LINK = 'https://www.instagram.com/keikenstudyabroad/';
 
 // Videos for each country
-// Direct MP4 videos — no YouTube branding, autoplay cleanly
-const JAPAN_VIDEO = 'https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4';
-const KOREA_VIDEO = 'https://videos.pexels.com/video-files/5474822/5474822-uhd_2560_1440_30fps.mp4';
-const CHINA_VIDEO = 'https://videos.pexels.com/video-files/3843435/3843435-uhd_2560_1440_25fps.mp4';
+// Direct MP4 videos — correct country videos, no YouTube branding
+// Japan: Cherry blossoms / nature / temple aerial
+const JAPAN_VIDEO = 'https://videos.pexels.com/video-files/6134038/6134038-hd_1920_1080_25fps.mp4';
+// Korea: Seoul city + nature (Han River area)
+const KOREA_VIDEO = 'https://videos.pexels.com/video-files/7578543/7578543-hd_1920_1080_25fps.mp4';
+// China: Great Wall / landscape aerial
+const CHINA_VIDEO = 'https://videos.pexels.com/video-files/4763825/4763825-hd_1920_1080_25fps.mp4';
 
-// Background images
-const JAPAN_BG = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1920&q=80';
-const KOREA_BG = 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=1920&q=80';
-const CHINA_BG = 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1920&q=80';
+// Background images — real Unsplash photos, nature/temples/palaces, no streets
+const JAPAN_BG = 'https://images.unsplash.com/photo-1763898407960-a57d9414c7c8?w=1920&q=85&fit=crop&auto=format'; // Pagoda + Mt Fuji
+const KOREA_BG = 'https://images.unsplash.com/photo-1700306730557-e62129da6092?w=1920&q=85&fit=crop&auto=format'; // Korean pavilion lake
+const CHINA_BG = 'https://images.unsplash.com/photo-1583316161835-3d4d351c00c2?w=1920&q=85&fit=crop&auto=format'; // Great Wall misty
 
-// High quality country images for cards
+// High quality country images — real Unsplash, nature/temples/palaces only
 const COUNTRY_IMAGES = {
   japan: [
-    'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80',
-    'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80',
-    'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80',
-    'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=600&q=80',
-    'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?w=600&q=80',
-    'https://images.unsplash.com/photo-1576675466969-5aaf2cdba982?w=600&q=80',
+    'https://images.unsplash.com/photo-1774801467563-d1e1e2c71814?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1617166977368-2cb6eef53daf?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1625332823148-3ae44b25c282?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1777498270088-a6e243328322?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1743515238366-9e613603a699?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1730800329077-ee7cb00c0869?w=600&q=85&fit=crop&auto=format',
   ],
   korea: [
-    'https://images.unsplash.com/photo-1538485399081-7191377e8241?w=600&q=80',
-    'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=600&q=80',
-    'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80',
-    'https://images.unsplash.com/photo-1590107076492-2e8d32c4c4e6?w=600&q=80',
-    'https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=600&q=80',
-    'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?w=600&q=80',
+    'https://images.unsplash.com/photo-1603545959774-96bef891432b?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1593726222205-21404ff4e5fd?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1704240649486-3729c2d44ae3?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1704240687630-6f0830668df3?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1703825864792-5880081beaaf?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1777184440307-eeeb09564a51?w=600&q=85&fit=crop&auto=format',
   ],
   china: [
-    'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600&q=80',
-    'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80',
-    'https://images.unsplash.com/photo-1537531383496-f4749b8032cf?w=600&q=80',
-    'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=600&q=80',
-    'https://images.unsplash.com/photo-1529921879218-f99546d03a24?w=600&q=80',
-    'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&q=80',
+    'https://images.unsplash.com/photo-1771345207751-4ab70c4cc234?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1776917983194-9d5c73b1ec16?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1773318960501-71624594ed45?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1773318901039-323c8afa8790?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1778024359742-129f80a1c94f?w=600&q=85&fit=crop&auto=format',
+    'https://images.unsplash.com/photo-1766953365660-4bbc691f8cb3?w=600&q=85&fit=crop&auto=format',
   ],
 };
 
@@ -375,8 +378,8 @@ const Demo = () => {
       <nav className='fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10'>
         <div className='max-w-7xl mx-auto px-4 py-4 flex items-center justify-between'>
           <div className='flex items-center gap-2'>
-            <span className='font-serif text-xl text-white'>Keiken</span>
-            <span className='text-xs text-white/50'>経験</span>
+            <span className='heading-dramatic text-2xl text-white'>Keiken</span>
+            <span className='font-handwrite text-sm text-white/50 ml-1'>経験</span>
           </div>
 
           <div className='hidden md:flex items-center gap-6'>
@@ -413,10 +416,10 @@ const Demo = () => {
           scrollToExpand='Scroll to Explore'
         >
           <div className='max-w-4xl mx-auto'>
-            <h2 className='text-3xl md:text-4xl font-bold mb-4 text-white'>
+            <h2 className='heading-dramatic text-4xl md:text-6xl mb-4 text-white'>
               {currentData.title}
             </h2>
-            <p className='text-lg text-white/70 mb-8'>
+            <p className='heading-elegant text-2xl text-white/75 mb-8'>
               {currentData.subtitle}
             </p>
 
@@ -428,8 +431,8 @@ const Demo = () => {
                   onClick={() => setActiveCountry(country)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
                     activeCountry === country
-                      ? 'bg-white text-black'
-                      : 'bg-white/10 text-white/70 hover:bg-white/20'
+                      ? 'bg-white/90 text-black font-medium'
+                      : 'bg-white/8 text-white/60 hover:bg-white/15 border border-white/10'
                   }`}
                 >
                   <span>{SCHOLARSHIP_DATA[country].flag}</span>
@@ -483,8 +486,8 @@ const Demo = () => {
             viewport={{ once: true }}
             className='text-center mb-12'
           >
-            <span className='text-xs tracking-[0.3em] text-white/40 uppercase'>Scholarships</span>
-            <h2 className='font-serif text-4xl md:text-6xl text-white mt-4'>
+            <span className='label-handwrite text-white/50'>Scholarships we cover</span>
+            <h2 className='heading-dramatic text-5xl md:text-7xl text-white mt-4 italic'>
               <TextRotate
                 texts={['Japan', 'Korea', 'China']}
                 mainClassName='text-white px-2'
@@ -498,7 +501,7 @@ const Demo = () => {
                 rotationInterval={3000}
               />
               <br />
-              <span className='text-white/80'>Scholarships</span>
+              <span className='font-serif font-light text-white/75 not-italic'>Scholarships</span>
             </h2>
           </motion.div>
 
@@ -541,7 +544,7 @@ const Demo = () => {
                         <scholarship.icon className='w-5 h-5' style={{ color: scholarship.color }} />
                       </div>
                       <div>
-                        <h3 className='text-white font-medium'>{scholarship.name}</h3>
+                        <h3 className='font-serif text-lg text-white font-normal'>{scholarship.name}</h3>
                         <span className='text-xs text-white/50'>{scholarship.status}</span>
                       </div>
                     </div>
@@ -639,8 +642,8 @@ const Demo = () => {
             viewport={{ once: true }}
             className='text-center mb-12'
           >
-            <span className='text-xs tracking-[0.3em] text-white/40 uppercase'>Resources</span>
-            <h2 className='font-serif text-4xl md:text-6xl text-white mt-4'>
+            <span className='label-handwrite text-white/50'>What's inside</span>
+            <h2 className='heading-dramatic text-5xl md:text-7xl text-white mt-2 italic'>
               Everything You Need
             </h2>
           </motion.div>
@@ -681,8 +684,8 @@ const Demo = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className='text-xs tracking-[0.3em] text-white/40 uppercase'>Community</span>
-            <h2 className='font-serif text-4xl md:text-6xl text-white mt-4 mb-6'>
+            <span className='label-handwrite text-white/50'>A place for dreamers</span>
+            <h2 className='heading-dramatic text-5xl md:text-7xl text-white mt-2 mb-6 italic'>
               Join Our Community
             </h2>
             <p className='text-white/60 text-lg mb-8 max-w-xl mx-auto'>
@@ -747,7 +750,7 @@ const Demo = () => {
 
           <div className='mt-8 pt-8 border-t border-white/5 text-center'>
             <p className='text-white/30 text-xs'>
-              © 2024 Keiken. Made with 🌸 for students worldwide.
+              <span className='font-handwrite text-base'>Made with 🌸 for students worldwide</span> · © 2025 Keiken
             </p>
           </div>
         </div>

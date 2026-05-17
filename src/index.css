@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Caveat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+JP:wght@300;400&display=swap');
 
 @import "tailwindcss";
 
@@ -18,8 +18,18 @@
   --color-cream: #f5f0e6;
   --color-lantern: #e8a64c;
 
-  --font-sans: 'Instrument Sans', system-ui, sans-serif;
-  --font-serif: 'Instrument Serif', serif;
+  /* Pinterest aesthetic colors */
+  --color-japan-warm: #e8c5a0;
+  --color-japan-blush: #f2d5c4;
+  --color-korea-lilac: #c9b8e8;
+  --color-korea-mint: #b8ddd4;
+  --color-china-gold: #d4a853;
+  --color-china-rouge: #c45c5c;
+
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-display: 'Playfair Display', serif;
+  --font-handwrite: 'Caveat', cursive;
   --font-japanese: 'Noto Serif JP', serif;
 
   /* Shadcn UI variables */
@@ -69,28 +79,90 @@ body {
   min-height: 100vh;
 }
 
+/* ── PINTEREST AESTHETIC TYPOGRAPHY ── */
+
+/* Dramatic serif for hero titles */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Elegant light serif for section headings */
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Handwritten pencil feel for labels, captions, accents */
+.font-handwrite {
+  font-family: 'Caveat', cursive;
+}
+
+/* Japanese serif for kanji / Japanese text */
+.font-japanese {
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* Pinterest-style heading — dramatic drop */
+.heading-dramatic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Pinterest-style label — handwritten feel */
+.label-handwrite {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Elegant subheading */
+.heading-elegant {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ── COUNTRY COLOR SCHEMES ── */
+
+/* Japan — sakura pink, warm cream, soft amber */
+.country-japan {
+  --country-primary: #e8b4a0;
+  --country-accent: #f5ddd4;
+  --country-glow: rgba(232,180,160,0.15);
+  --country-border: rgba(232,180,160,0.25);
+}
+
+/* Korea — soft lilac, mint, moonlight blue */
+.country-korea {
+  --country-primary: #b8aee0;
+  --country-accent: #d4ede8;
+  --country-glow: rgba(184,174,224,0.15);
+  --country-border: rgba(184,174,224,0.25);
+}
+
+/* China — warm gold, deep rouge, jade */
+.country-china {
+  --country-primary: #d4a853;
+  --country-accent: #e8c882;
+  --country-glow: rgba(212,168,83,0.15);
+  --country-border: rgba(212,168,83,0.25);
+}
+
+/* ── SELECTION ── */
 ::selection {
   background-color: var(--color-soft-blue);
   color: #0a0a0a;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: rgba(200,200,200,0.15); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(200,200,200,0.25); }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(200, 200, 200, 0.2);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 200, 200, 0.3);
-}
-
+/* ── ANIMATIONS ── */
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -116,130 +188,70 @@ body {
   50% { transform: scale(1.2); }
 }
 
-/* Shadcn UI component styles - using plain CSS for Tailwind v4 compatibility */
-
-/* Animation for the pulsing effect */
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
-/* Animation for the ping effect */
 @keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
+  75%, 100% { transform: scale(2); opacity: 0; }
 }
 
-/* Custom animations for the orbital timeline */
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
-.animate-ping {
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+/* ── PINTEREST GLASS CARD ── */
+.pinterest-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.3s, transform 0.3s;
 }
 
-/* Transitions */
+.pinterest-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+/* ── WARM GLOW EFFECTS ── */
+.glow-japan { box-shadow: 0 0 40px rgba(232,180,160,0.12); }
+.glow-korea { box-shadow: 0 0 40px rgba(184,174,224,0.12); }
+.glow-china { box-shadow: 0 0 40px rgba(212,168,83,0.12); }
+
+/* ── UTILITIES (for Tailwind v4 compat) ── */
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+.animate-ping { animation: ping 1s cubic-bezier(0,0,0.2,1) infinite; }
+
 .transition-all {
   transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
 }
 
-.duration-300 {
-  transition-duration: 300ms;
-}
+.duration-300 { transition-duration: 300ms; }
+.duration-700 { transition-duration: 700ms; }
+.duration-1000 { transition-duration: 1000ms; }
 
-.duration-700 {
-  transition-duration: 700ms;
-}
+.backdrop-blur-lg { backdrop-filter: blur(16px); }
 
-.duration-1000 {
-  transition-duration: 1000ms;
-}
-
-/* Backdrop blur */
-.backdrop-blur-lg {
-  backdrop-filter: blur(16px);
-}
-
-/* Custom gradients */
 .bg-gradient-orbital {
   background: linear-gradient(to bottom right, #6366f1, #3b82f6, #14b8a6);
 }
 
-/* Z-index utilities */
-.z-10 {
-  z-index: 10;
-}
-
-.z-50 {
-  z-index: 50;
-}
-
-/* Custom shadows */
-.shadow-orbital {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-/* Custom transforms */
-.scale-125 {
-  transform: scale(1.25);
-}
-
-.scale-150 {
-  transform: scale(1.5);
-}
-
-/* Custom opacity values */
-.opacity-70 {
-  opacity: 0.7;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-/* Custom border opacity */
-.border-white\/10 {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.border-white\/20 {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.border-white\/30 {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.border-white\/40 {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Custom background opacity */
-.bg-black\/90 {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.bg-white\/50 {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.bg-white\/80 {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Custom text opacity */
-.text-white\/70 {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.text-white\/80 {
-  color: rgba(255, 255, 255, 0.8);
-}
+.z-10 { z-index: 10; }
+.z-50 { z-index: 50; }
+.shadow-orbital { box-shadow: 0 0 15px rgba(255,255,255,0.1); }
+.scale-125 { transform: scale(1.25); }
+.scale-150 { transform: scale(1.5); }
+.opacity-70 { opacity: 0.7; }
+.opacity-50 { opacity: 0.5; }
+.border-white\/10 { border-color: rgba(255,255,255,0.1); }
+.border-white\/20 { border-color: rgba(255,255,255,0.2); }
+.border-white\/30 { border-color: rgba(255,255,255,0.3); }
+.border-white\/40 { border-color: rgba(255,255,255,0.4); }
+.bg-black\/90 { background-color: rgba(0,0,0,0.9); }
+.bg-white\/50 { background-color: rgba(255,255,255,0.5); }
+.bg-white\/80 { background-color: rgba(255,255,255,0.8); }
+.text-white\/70 { color: rgba(255,255,255,0.7); }
+.text-white\/80 { color: rgba(255,255,255,0.8); }
