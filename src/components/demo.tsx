@@ -398,11 +398,11 @@ const Demo = () => {
           </div>
 
           <div className='hidden md:flex items-center gap-6'>
-            <button onClick={() => { setActiveView('hero'); scrollToSection('hero'); }} className='text-white/60 hover:text-white text-sm transition-colors'>Home</button>
-            <button onClick={() => { setActiveView('scholarships'); scrollToSection('scholarships'); }} className='text-white/60 hover:text-white text-sm transition-colors'>Scholarships</button>
-            <button onClick={() => { setActiveView('resources'); scrollToSection('resources'); }} className='text-white/60 hover:text-white text-sm transition-colors'>Resources</button>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Home</button>
+            <button onClick={() => document.getElementById('scholarships-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Scholarships</button>
+            <button onClick={() => document.getElementById('resources-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Resources</button>
             <a href={DISCORD_LINK} target='_blank' rel='noopener noreferrer' className='text-white/60 hover:text-white text-sm transition-colors flex items-center gap-1'>
-              <MessageCircle className='w-4 h-4' /> Community
+              <button onClick={() => document.getElementById('community-section')?.scrollIntoView({ behavior: 'smooth' })} className='flex items-center gap-1 text-white/60 hover:text-white text-sm transition-colors'><MessageCircle className='w-4 h-4' /> Community</button>
             </a>
           </div>
 
@@ -425,7 +425,6 @@ const Demo = () => {
         <ScrollExpandMedia
           mediaType='video'
           mediaSrc={currentData.video}
-          slideshowImages={COUNTRY_IMAGES[activeCountry as keyof typeof COUNTRY_IMAGES]}
           bgImageSrc={currentData.bg}
           countryAccent={currentData.accent}
           title={`${currentData.name} Dreams`}
@@ -494,6 +493,7 @@ const Demo = () => {
       </section>
 
       {/* Scholarships Section */}
+      <div id='scholarships-section' />
       <section id='scholarships' className='py-20 px-4 bg-[#0d0d0d]'>
         <div className='max-w-6xl mx-auto'>
           {/* Section Header */}
@@ -651,6 +651,7 @@ const Demo = () => {
       </section>
 
       {/* Resources Section */}
+      <div id='resources-section' />
       <section id='resources' className='py-20 px-4 bg-black'>
         <div className='max-w-6xl mx-auto'>
           <motion.div
@@ -694,6 +695,7 @@ const Demo = () => {
       </section>
 
       {/* Community Section */}
+      <div id='community-section' />
       <section className='py-20 px-4 bg-[#0d0d0d]'>
         <div className='max-w-4xl mx-auto text-center'>
           <motion.div
@@ -756,7 +758,7 @@ const Demo = () => {
               <a href={INSTAGRAM_LINK} target='_blank' rel='noopener noreferrer' className='text-white/40 hover:text-white/70 text-sm transition-colors'>
                 Instagram
               </a>
-              <a href='#' className='text-white/40 hover:text-white/70 text-sm transition-colors'>
+              <a href='#resources-section' onClick={(e) => { e.preventDefault(); document.getElementById('resources-section')?.scrollIntoView({ behavior: 'smooth' }); }} className='text-white/40 hover:text-white/70 text-sm transition-colors'>
                 Resources
               </a>
               <a href='#' className='text-white/40 hover:text-white/70 text-sm transition-colors'>
