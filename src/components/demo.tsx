@@ -45,11 +45,23 @@ const INSTAGRAM_LINK = 'https://www.instagram.com/keikenstudyabroad/';
 // Videos for each country
 // Direct MP4 videos — correct country videos, no YouTube branding
 // Japan: Cherry blossoms / nature / temple aerial
-const JAPAN_VIDEO = 'https://videos.pexels.com/video-files/6134038/6134038-hd_1920_1080_25fps.mp4';
+const JAPAN_VIDEOS = [
+  'https://videos.pexels.com/video-files/31453316/13412984_3840_2160_25fps.mp4', // Osaka Dotonbori
+  'https://videos.pexels.com/video-files/31387598/13393245_1920_1080_30fps.mp4', // Tokyo Tower
+];
+const JAPAN_VIDEO = JAPAN_VIDEOS[0];
 // Korea: Seoul city + nature (Han River area)
-const KOREA_VIDEO = 'https://videos.pexels.com/video-files/7578543/7578543-hd_1920_1080_25fps.mp4';
+const KOREA_VIDEOS = [
+  'https://videos.pexels.com/video-files/29240313/12618328_3840_2160_24fps.mp4', // Korean palace guard
+  'https://videos.pexels.com/video-files/35003238/14829005_3840_2160_30fps.mp4', // Seoul city tram
+];
+const KOREA_VIDEO = KOREA_VIDEOS[0];
 // China: Great Wall / landscape aerial
-const CHINA_VIDEO = 'https://videos.pexels.com/video-files/4763825/4763825-hd_1920_1080_25fps.mp4';
+const CHINA_VIDEOS = [
+  'https://videos.pexels.com/video-files/7206746/7206746-hd_1920_1080_25fps.mp4', // HK city night
+  'https://videos.pexels.com/video-files/34768648/14740610_3840_2160_30fps.mp4', // HK vibrant street
+];
+const CHINA_VIDEO = CHINA_VIDEOS[0];
 
 // Background images — real Unsplash photos, nature/temples/palaces, no streets
 const JAPAN_BG = 'https://images.unsplash.com/photo-1763898407960-a57d9414c7c8?w=1920&q=85&fit=crop&auto=format'; // Pagoda + Mt Fuji
@@ -89,6 +101,7 @@ const SCHOLARSHIP_DATA = {
   japan: {
     name: 'Japan',
     flag: '🇯🇵',
+    accent: '#f0b8a0',
     video: JAPAN_VIDEO,
     bg: JAPAN_BG,
     title: 'Study in Japan',
@@ -177,6 +190,7 @@ const SCHOLARSHIP_DATA = {
   korea: {
     name: 'Korea',
     flag: '🇰🇷',
+    accent: '#b8aee0',
     video: KOREA_VIDEO,
     bg: KOREA_BG,
     title: 'Study in Korea',
@@ -264,6 +278,7 @@ const SCHOLARSHIP_DATA = {
   china: {
     name: 'China',
     flag: '🇨🇳',
+    accent: '#d4a853',
     video: CHINA_VIDEO,
     bg: CHINA_BG,
     title: 'Study in China',
@@ -410,7 +425,9 @@ const Demo = () => {
         <ScrollExpandMedia
           mediaType='video'
           mediaSrc={currentData.video}
+          slideshowImages={COUNTRY_IMAGES[activeCountry as keyof typeof COUNTRY_IMAGES]}
           bgImageSrc={currentData.bg}
+          countryAccent={currentData.accent}
           title={`${currentData.name} Dreams`}
           date={currentData.flag}
           scrollToExpand='Scroll to Explore'
