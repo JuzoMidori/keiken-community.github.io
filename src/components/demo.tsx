@@ -114,7 +114,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['High school diploma for undergrad', 'Bachelor\'s degree for graduate', 'Valid passport', 'Nationality requirement'],
         benefits: ['Full tuition waiver', 'Monthly stipend ¥117,000', 'Round-trip airfare', 'Settlement allowance'],
         deadline: 'Typically May-June for the following year',
-        url: 'https://www.studyinjapan.go.jp/en/scholarship/',
+        url: 'https://www.mext.go.jp/en/policy/education/highschool/title02/detail02/sdetail02/1373861.htm',
         color: '#FFA796',
         icon: GraduationCap,
         status: 'Popular',
@@ -126,7 +126,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Enrolled at Japanese university', 'Good academic standing', 'Financial need'],
         benefits: ['¥30,000-¥48,000/month', 'Tuition assistance', 'Travel support'],
         deadline: 'Varies by university',
-        url: 'https://www.jasso.go.jp/',
+        url: 'https://www.jasso.or.jp/en/study_j/scholarship/',
         color: '#BCD4FD',
         icon: BookOpen,
         status: 'Available',
@@ -138,7 +138,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['US citizenship', 'Bachelor\'s degree minimum', 'English proficiency'],
         benefits: ['Round-trip airfare', 'Monthly living stipend', 'Tuition waiver'],
         deadline: 'Varies by program',
-        url: 'https://fulbright.jp/',
+        url: 'https://fulbright.jp/grants/apply/',
         color: '#C9C1FF',
         icon: Globe,
         status: 'Competitive',
@@ -150,7 +150,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Bachelor\'s degree', 'Proven peace career interest', 'Leadership experience'],
         benefits: ['Full funding', 'Master\'s degree', 'Global network'],
         deadline: 'May 31 annually',
-        url: 'https://www.rotary.org/en/peace-fellowships',
+        url: 'https://www.rotary.org/en/our-programs/peace-fellowships',
         color: '#91B394',
         icon: Shield,
         status: 'Prestigious',
@@ -162,7 +162,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Enrolled in Japanese university', 'Under 30 years old', 'Academic excellence'],
         benefits: ['¥100,000/month', 'Housing assistance', 'Mentorship program'],
         deadline: 'Rolling admission',
-        url: 'https://yasato.org/',
+        url: 'https://www.jasso.or.jp/en/',
         color: '#E3C0A9',
         icon: Star,
         status: 'Emerging',
@@ -174,7 +174,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Citizen of ADB developing member', 'Bachelor\'s degree', '2+ years work experience'],
         benefits: ['Full tuition', 'Monthly allowance', 'Airfare', 'Health insurance'],
         deadline: 'Varies by university',
-        url: 'https://www.adb.org/work-with-us/scholarships',
+        url: 'https://www.adb.org/work-with-us/careers/japan-scholarship-program',
         color: '#59E7CA',
         icon: Award,
         status: 'Exclusive',
@@ -182,7 +182,7 @@ const SCHOLARSHIP_DATA = {
     ],
     exams: [
       { name: 'JLPT', fullName: 'Japanese-Language Proficiency Test', levels: 'N1-N5', url: 'https://www.jlpt.jp/' },
-      { name: 'EJU', fullName: 'Examination for Japanese University', subjects: 'Japanese, Science, Japan/Int\'l Affairs', url: 'https://www.uacec.jp/en/' },
+      { name: 'EJU', fullName: 'Examination for Japanese University', subjects: 'Japanese, Science, Japan/Int\'l Affairs', url: 'https://www.jasso.or.jp/en/eju/' },
       { name: 'NAT-TEST', fullName: 'Japanese Language NAT-TEST', levels: '5Q-1Q', url: 'https://www.nat-test.com/' },
     ],
     universities: ['University of Tokyo', 'Kyoto University', 'Osaka University', 'Tohoku University', 'Tokyo Institute of Technology', 'Waseda University', 'Keio University'],
@@ -203,7 +203,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Non-Korean citizenship', 'Under 40 years old (grad)', 'GPA requirement 80%+', 'Health check required'],
         benefits: ['Full tuition waiver', '₩200,000/month allowance', 'Language training (1 year)', 'Round-trip airfare', 'Settlement allowance'],
         deadline: 'March-April for fall semester',
-        url: 'https://www.studyinkorea.go.kr/en/sub/scholarship/info detail/detail.do?schSeq=5',
+        url: 'https://www.studyinkorea.go.kr/en/sub/scholarship/gks/gks.do',
         color: '#C9C1FF',
         icon: GraduationCap,
         status: 'Most Popular',
@@ -215,7 +215,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Citizen of developing Asian country', 'Under 35 years', 'GPA 80%+'],
         benefits: ['Full tuition', '₩800,000/month', 'Airfare', 'Korean language training'],
         deadline: 'March annually',
-        url: 'https://www.poscoyoll.com/',
+        url: 'https://www.poscogroup.com/en/talent/scholarship.do',
         color: '#BCD4FD',
         icon: Globe,
         status: 'Prestigious',
@@ -227,7 +227,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['GPA requirement varies', 'Must pass embassy interview', 'Korean language proficiency'],
         benefits: ['Full tuition', 'Monthly stipend', 'Airfare', 'Resettlement allowance'],
         deadline: 'March-April',
-        url: 'https://www.studyinkorea.go.kr/',
+        url: 'https://www.studyinkorea.go.kr/en/main.do',
         color: '#FFA796',
         icon: Award,
         status: 'Comprehensive',
@@ -239,7 +239,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Korean residency', 'GPA top 30%', 'Financial need priority'],
         benefits: ['₩500,000/month', 'Tuition support', 'Mentoring program'],
         deadline: 'March, September',
-        url: 'https://www.samsungscholarship.kr/',
+        url: 'https://www.samsungscholarship.com/',
         color: '#91B394',
         icon: Star,
         status: 'Corporate',
@@ -251,7 +251,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['TOPIK level 2+', 'Enrolled in Korean university', 'Cultural activities participation'],
         benefits: ['₩300,000/month', 'Language course fee waiver', 'Cultural program access'],
         deadline: 'Rolling',
-        url: 'https://www.kfl.or.kr/',
+        url: 'https://www.kfoundation.or.kr/',
         color: '#E3C0A9',
         icon: Heart,
         status: 'Culture',
@@ -263,7 +263,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['From developing country', 'Bachelor\'s degree', 'Recommendation letter'],
         benefits: ['Full funding', 'Monthly allowance', 'Airfare', 'Health insurance'],
         deadline: 'Varies',
-        url: 'https://www.otisbooyem.org/',
+        url: 'https://www.studyinkorea.go.kr/en/main.do',
         color: '#59E7CA',
         icon: Shield,
         status: 'International',
@@ -271,7 +271,7 @@ const SCHOLARSHIP_DATA = {
     ],
     exams: [
       { name: 'TOPIK', fullName: 'Test of Proficiency in Korean', levels: '1-6', url: 'https://www.topik.go.kr/' },
-      { name: 'KLAT', fullName: 'Korean Language Aptitude Test', purpose: 'For non-native speakers', url: 'http://www.klat.or.kr/' },
+      { name: 'KLAT', fullName: 'Korean Language Aptitude Test', purpose: 'For non-native speakers', url: 'https://www.topik.go.kr/' },
     ],
     universities: ['Seoul National University', 'KAIST', 'Korea University', 'Yonsei University', 'POSTECH', 'Sungkyunkwan University', 'Hanyang University'],
   },
@@ -291,7 +291,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Non-Chinese citizenship', 'Age limits vary by program', 'GPA requirement', 'Health check'],
         benefits: ['Full tuition waiver', '¥2,500-3,500/month', 'Free dormitory or housing allowance', 'Medical insurance', 'Airfare (one-way)'],
         deadline: 'Varies by university (typically Jan-April)',
-        url: 'http://www.csc.edu.cn/',
+        url: 'https://www.campuschina.org/',
         color: '#BCD4FD',
         icon: GraduationCap,
         status: 'Most Popular',
@@ -303,7 +303,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Chinese language proficiency', 'HSK score requirement', 'Cultural exchange interest'],
         benefits: ['Tuition waiver', 'Living allowance', 'Accommodation', 'Textbooks'],
         deadline: 'March annually',
-        url: 'https://cis.chinese.cn/',
+        url: 'https://www.chinese.cn/page/#/pcpage/project',
         color: '#FFA796',
         icon: BookOpen,
         status: 'Language',
@@ -315,7 +315,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['From B&R country', 'GPA requirement', 'Recommendation required'],
         benefits: ['Full tuition', '¥2,000-3,000/month', 'Free accommodation', 'Airfare support'],
         deadline: 'Varies',
-        url: 'http://www.csc.edu.cn/',
+        url: 'https://www.campuschina.org/',
         color: '#C9C1FF',
         icon: Globe,
         status: 'Strategic',
@@ -327,7 +327,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Admitted to Shanghai university', 'Good academic record', 'HSK 4+ for Chinese programs'],
         benefits: ['¥10,000-30,000/year', 'Tuition reduction', 'Living support'],
         deadline: 'Varies by university',
-        url: 'https://www.shedutech.com/',
+        url: 'https://www.campuschina.org/',
         color: '#91B394',
         icon: Award,
         status: 'Regional',
@@ -339,7 +339,7 @@ const SCHOLARSHIP_DATA = {
         eligibility: ['Enrolled in Beijing university', 'Academic excellence', 'HSK certificate'],
         benefits: ['¥40,000-80,000/year', 'Tuition waiver options', 'Living stipend'],
         deadline: 'Varies',
-        url: 'http://www.beijing.gov.cn/',
+        url: 'https://www.campuschina.org/',
         color: '#E3C0A9',
         icon: Star,
         status: 'City',
@@ -358,8 +358,8 @@ const SCHOLARSHIP_DATA = {
       },
     ],
     exams: [
-      { name: 'HSK', fullName: 'Hanyu Shuiping Kaoshi', levels: '1-6', url: 'http://www.chinesetest.cn/' },
-      { name: 'YCT', fullName: 'Youth Chinese Test', levels: '1-4', url: 'http://www.chinesetest.cn/' },
+      { name: 'HSK', fullName: 'Hanyu Shuiping Kaoshi', levels: '1-6', url: 'https://www.chinesetest.cn/goRegister.do' },
+      { name: 'YCT', fullName: 'Youth Chinese Test', levels: '1-4', url: 'https://www.chinesetest.cn/goRegister.do' },
     ],
     universities: ['Tsinghua University', 'Peking University', 'Fudan University', 'Zhejiang University', 'Shanghai Jiao Tong', 'Nanjing University', 'Wuhan University'],
   },
@@ -398,11 +398,13 @@ const Demo = () => {
           </div>
 
           <div className='hidden md:flex items-center gap-6'>
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Home</button>
             <button onClick={() => document.getElementById('scholarships-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Scholarships</button>
-            <button onClick={() => document.getElementById('resources-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Resources</button>
+            <button onClick={() => document.getElementById('community-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Community</button>
+            <a href='https://ko-fi.com/' target='_blank' rel='noopener noreferrer' className='flex items-center gap-1.5 bg-gradient-to-r from-pink-500/80 to-rose-500/80 hover:from-pink-500 hover:to-rose-500 text-white text-sm px-3 py-1.5 rounded-full transition-all'>
+              ☕ Donate
+            </a>
             <a href={DISCORD_LINK} target='_blank' rel='noopener noreferrer' className='text-white/60 hover:text-white text-sm transition-colors flex items-center gap-1'>
-              <button onClick={() => document.getElementById('community-section')?.scrollIntoView({ behavior: 'smooth' })} className='flex items-center gap-1 text-white/60 hover:text-white text-sm transition-colors'><MessageCircle className='w-4 h-4' /> Community</button>
+
             </a>
           </div>
 
