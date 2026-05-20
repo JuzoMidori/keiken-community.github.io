@@ -82,17 +82,26 @@ const ScrollExpandMedia = ({
     const handleTouchEnd = () => setTouchStartY(0);
     const handleScroll = () => { if (!mediaFullyExpanded) window.scrollTo(0, 0); };
 
+    // Force expand from nav click
+    const handleForceExpand = () => {
+      setScrollProgress(1);
+      setMediaFullyExpanded(true);
+      setShowContent(true);
+    };
+
     window.addEventListener('wheel', handleWheel as unknown as EventListener, { passive: false });
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('touchstart', handleTouchStart as unknown as EventListener, { passive: false });
     window.addEventListener('touchmove', handleTouchMove as unknown as EventListener, { passive: false });
     window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('forceExpandHero', handleForceExpand);
     return () => {
       window.removeEventListener('wheel', handleWheel as unknown as EventListener);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener);
       window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener);
       window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('forceExpandHero', handleForceExpand);
     };
   }, [scrollProgress, mediaFullyExpanded, touchStartY]);
 

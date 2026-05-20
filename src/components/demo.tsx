@@ -379,12 +379,16 @@ const Demo = () => {
     setExpandedScholarship(null);
   }, [activeCountry]);
 
-  // Scroll to section helper
+  // Scroll to section — releases hero scroll lock first, then scrolls
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Force expand hero first so scroll is released
+    window.dispatchEvent(new CustomEvent('forceExpandHero'));
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 400);
   };
 
   return (
@@ -400,9 +404,9 @@ const Demo = () => {
           <div className='hidden md:flex items-center gap-6'>
             <button onClick={() => document.getElementById('scholarships-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Scholarships</button>
             <button onClick={() => document.getElementById('community-section')?.scrollIntoView({ behavior: 'smooth' })} className='text-white/60 hover:text-white text-sm transition-colors'>Community</button>
-            <a href='https://ko-fi.com/' target='_blank' rel='noopener noreferrer' className='flex items-center gap-1.5 bg-gradient-to-r from-pink-500/80 to-rose-500/80 hover:from-pink-500 hover:to-rose-500 text-white text-sm px-3 py-1.5 rounded-full transition-all'>
-              ☕ Donate
-            </a>
+            <button onClick={() => setShowDonate(true)} className='flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm px-3 py-1.5 rounded-full transition-all'>
+              🪙 Support Us
+            </button>
             <a href={DISCORD_LINK} target='_blank' rel='noopener noreferrer' className='text-white/60 hover:text-white text-sm transition-colors flex items-center gap-1'>
 
             </a>
@@ -776,6 +780,42 @@ const Demo = () => {
           </div>
         </div>
       </footer>
+
+      {/* Crypto Donation Modal */}
+      {showDonate && (
+        <div className='fixed inset-0 z-[200] flex items-center justify-center p-4' onClick={() => setShowDonate(false)}>
+          <div className='absolute inset-0 bg-black/80 backdrop-blur-sm' />
+          <div className='relative bg-[#0f0f0f] border border-white/10 rounded-2xl p-8 max-w-md w-full shadow-2xl' onClick={e => e.stopPropagation()}>
+            <button onClick={() => setShowDonate(false)} className='absolute top-4 right-4 text-white/40 hover:text-white text-xl'>✕</button>
+            <div className='text-center mb-6'>
+              <span className='text-3xl'>🙏</span>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }} className='text-2xl text-white mt-2 mb-1'>Support Keiken</h3>
+              <p className='text-white/50 text-sm'>Your support keeps this community free for everyone. Send crypto to any address below.</p>
+            </div>
+            <div className='space-y-4'>
+              {[
+                { coin: '₮ USDT (ERC-20)', addr: '0xCf364815876C90D5ff5A77838FcAC9b886a4f762', color: '#26a17b' },
+                { coin: 'Ł LTC', addr: '0xCf364815876C90D5ff5A77838FcAC9b886a4f762', color: '#bebebe' },
+                { coin: '₿ BTC', addr: 'bc1qnqpmlqhu5y4vjm7x9j9yhh6pvee4e99kqwv8mv', color: '#f7931a' },
+              ].map(({ coin, addr, color }) => (
+                <div key={coin} className='bg-white/5 border border-white/10 rounded-xl p-4'>
+                  <div className='flex items-center justify-between mb-2'>
+                    <span className='text-sm font-medium' style={{ color }}>{coin}</span>
+                    <button
+                      onClick={() => { navigator.clipboard.writeText(addr); }}
+                      className='text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/30 px-2 py-0.5 rounded transition-all'
+                    >
+                      Copy
+                    </button>
+                  </div>
+                  <p className='text-xs text-white/50 font-mono break-all'>{addr}</p>
+                </div>
+              ))}
+            </div>
+            <p className='text-center text-white/30 text-xs mt-6'>Any amount is appreciated 💛 · Works worldwide</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
