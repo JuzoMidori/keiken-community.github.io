@@ -379,16 +379,12 @@ const Demo = () => {
     setExpandedScholarship(null);
   }, [activeCountry]);
 
-  // Scroll to section — releases hero scroll lock first, then scrolls
+  // Scroll to section helper
   const scrollToSection = (sectionId: string) => {
-    // Force expand hero first so scroll is released
-    window.dispatchEvent(new CustomEvent('forceExpandHero'));
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 400);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
